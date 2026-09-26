@@ -1,0 +1,6 @@
+---
+title: "Homework 1"
+author: "Ananya Lahiri"
+date: "2026-09-26"
+output: github_document
+---
