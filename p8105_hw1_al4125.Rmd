@@ -4,3 +4,25 @@ author: "Ananya Lahiri"
 date: "2026-09-26"
 output: github_document
 ---
+# Problem 1
+```{r, message = FALSE}
+library(tidyverse)
+data("penguins", package = "palmerpenguins")
+```
+In the penguins dataset, it gives us information on the type of species, island, bill length, bill depth, flipper length, body mass, sex, and year. The three types of species in the dataset are Adelie, Gentoo, and Chinstrap. The types of islands are Torgersen, Biscoe, and Dream, and the dataset includes both male and female penguins. Some of the values in the dataset are NA, showing that they are missing.
+
+There are `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+
+The mean of flipper length is `r round(mean(pull(drop_na(penguins, flipper_length_mm), flipper_length_mm)), 2)` mm.
+
+```{r, warning = FALSE}
+# Make scatterplot
+ggplot(
+  penguins,
+  aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point()
+
+# Save and export scatterplot 
+ggsave("penguins_scatterplot.png")
+```
+
